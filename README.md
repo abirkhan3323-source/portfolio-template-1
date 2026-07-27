@@ -1,6 +1,6 @@
 # Abir — Full-Stack Dev Portfolio
 
-Personal portfolio built with [Astro](https://astro.build), customized from [Antoine Wodniack's Webby-winning design](https://github.com/AntoineW/AW-2025-Portfolio).
+Personal portfolio built with [Astro](https://astro.build).
 
 NASA Space Apps National Champion · WICE Gold Medalist · 2025 JUC Awards
 
@@ -28,13 +28,4 @@ npm run dev
 
 ## 📄 License
 
-This project is licensed under [CC BY-NC 4.0](LICENSE.md) — same as the original.
-Original design by [Antoine Wodniack](https://github.com/AntoineW/AW-2025-Portfolio).
-Customized for Abir's portfolio. Attribution required for reuse.
-
----
-
-## 🙏 Credits
-
-Huge thanks to Antoine Wodniack for open-sourcing his Webby-winning portfolio.
-This version is customized with my own story, projects, and content.
+CC BY-NC 4.0 — see [LICENSE.md](LICENSE.md).
