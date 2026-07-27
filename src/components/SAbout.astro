@@ -1,22 +1,15 @@
 ---
-// Awards are nice, but they’re not the goal.
-// Focus on building quality websites, enjoying the process, and making your clients happy—that’s what really matters.
-// Some amazing sites never win anything, while mediocre ones sometimes do. Awards are a niche, not a universal measure of value.
-// Stay sharp, stay honest, and keep having fun.
+// Building things that matter — from desktop companions to industrial platforms.
 const awards = {
   counters: {
-    awwwards: ['SOTD x 16', 'Honors x 1'],
-    fwa: ['SOTD x 4', 'MOTD x 2'],
-    cssda: ['WOTD x 18', 'WOTM x 1'],
+    nasa: ["Space Apps", "Nat’l Champion"],
+    wice: ["Gold Medalist"],
+    juc: ["2025 Awards"],
   },
   texts: {
-    webby2025: '2025 Webby Awards Winner <br/>Best Home Page',
-    commArt2017: 'Comm Arts Mag Interactive  Annual Competition Winner 2017',
-    netMag2016: 'Net Mag SOTM Summer 2016',
-    gsapOct2024: 'GSAP SOTM October 2024',
-    gsapNov2024: 'GSAP SOTM November 2024',
-    CSSDA2016: 'CSSDA Best Front-End <br/>Developer 2016',
-    CSSDA2015: 'CSSDA Best Front-End <br/>Developer 2015',
+    abri: "Abri — Pink desktop companion<br/>12 states, Pomodoro, XP system",
+    jinbao: "Jinbao Sheng — Industrial B2B<br/>93 products, 4 languages",
+    haaland: "Haaland Anime — Fan page<br/>with dynamic animations",
   },
 }
 ---
@@ -28,23 +21,23 @@ const awards = {
 
       <div class="s__content">
         <p>
-         Curiosity and the drive to learn are the most valuable skills for any creative developer. That hunger to understand how things work, to find clever workarounds, and to constantly push boundaries—that’s what makes this craft so rewarding.
+          I’m a full-stack developer who builds tools, automations, and desktop apps that make life easier. From industrial B2B platforms to pink desktop companions — I chase the interesting problems.
         </p>
 
         <p>
-          Over the years, I’ve learned more from studying other people’s code than from any course or tutorial. Digging through Codrops experiments, exploring CodePen creations, and analyzing real-world projects—that’s how I leveled up. And it’s still part of my daily routine.
+          My journey spans Bangladesh, China, and everywhere in between. I’ve built multi-language e-commerce systems, desktop companions with personality, and data extraction tools that save hours of manual work.
         </p>
 
         <p>
-          This portfolio brought me more recognition than I ever expected. What started as a quiet relaunch of my digital presence ended up winning a Webby Award. Now it’s time to give back.
+          NASA Space Apps National Champion. WICE Gold Medalist. 2025 JUC Awards. But the real win is shipping something people actually use and love.
         </p>
 
         <p>
-          I’m open-sourcing this site to share the knowledge behind it. If you’re a junior developer, I hope it helps you learn faster, build smarter, and gain confidence in your own journey.
+          This portfolio is open source — cloned from Antoine Wodniack’s Webby-winning design and customized for my story. Take what you need, but make it your own.
         </p>
 
         <p>
-          If you’re tempted to copy/paste it and make it yours as-is—don’t. The community will call you out, and you’ll doom yourself to eternal mediocrity.
+          Currently building at Jinbao Sheng Commercial Appliances. Open to interesting collaborations — reach out if you’re working on something cool.
         </p>
       </div><!-- .s__content -->
     </div><!-- .s__block -->
@@ -869,7 +862,7 @@ const awards = {
       padding: 0;
       display: grid;
       grid-template-columns: repeat(4, calc(var(--width) / 4));
-      grid-template-rows: repeat(8, calc(var(--width) / 4 / 0.751));
+      grid-template-rows: repeat(6, calc(var(--width) / 4 / 0.751));
 
       background: repeating-linear-gradient(
         -45deg,
@@ -886,7 +879,7 @@ const awards = {
 
       @include mq(tablet-sm) {
         grid-template-columns: repeat(4, calc(var(--width) / 4));
-        grid-template-rows: repeat(10, calc(var(--width) / 4 / 0.75));
+        grid-template-rows: repeat(8, calc(var(--width) / 4 / 0.75));
       }
 
       @at-root :global(.theme-contrasted) & {
@@ -1042,18 +1035,13 @@ const awards = {
           }
         }
 
-        &--webby2025 {
-          grid-column: 1 / 5;
-          grid-row: 1 / 2;
-        }
-
-        &--awwwards {
+        &--nasa {
           grid-column: 1 / 3;
-          grid-row: 2 / 4;
+          grid-row: 1 / 3;
 
           @include mq(tablet-sm) {
             grid-column: 1 / 3;
-            grid-row: 2 / 4;
+            grid-row: 1 / 3;
           }
 
           .s__award__name {
@@ -1077,93 +1065,58 @@ const awards = {
           }
         }
 
-      &--netMag2016 {
-        grid-column: 3 / 5;
-        grid-row: 2 / 3;
+        &--wice {
+          grid-column: 3 / 5;
+          grid-row: 1 / 2;
 
-        @include mq(tablet-sm) {
+          @include mq(tablet-sm) {
+            grid-column: 3 / 5;
+            grid-row: 1 / 2;
+          }
+        }
+
+        &--juc {
           grid-column: 3 / 5;
           grid-row: 2 / 3;
-        }
-      }
 
-        &--commArt2017 {
+          @include mq(tablet-sm) {
+            grid-column: 3 / 5;
+            grid-row: 3 / 4;
+          }
+        }
+
+        &--abri {
+          grid-column: 1 / 5;
+          grid-row: 3 / 4;
+
+          @include mq(tablet-sm) {
+            grid-column: 1 / 5;
+            grid-row: 4 / 5;
+          }
+        }
+
+        &--jinbao {
           grid-column: 1 / 5;
           grid-row: 4 / 5;
 
           @include mq(tablet-sm) {
             grid-column: 1 / 5;
-            grid-row: 8 / 9;
+            grid-row: 5 / 6;
           }
         }
 
-        &--fwa {
-          grid-column: 4 / 5;
-          grid-row: 3 / 4;
+        &--haaland {
+          grid-column: 1 / 5;
+          grid-row: 5 / 6;
 
           @include mq(tablet-sm) {
-            grid-column: 3 / 6;
-            grid-row: 4 / 6;
-          }
-        }
-
-        &--gsapOct2024 {
-          grid-column: 1 / 3;
-          grid-row: 6 / 7;
-
-          @include mq(tablet-sm) {
-            grid-column: 1 / 3;
-            grid-row: 4 / 5;
-          }
-        }
-
-        &--gsapNov2024 {
-          grid-column: 3 / 5;
-          grid-row: 6 / 7;
-
-          @include mq(tablet-sm) {
-            grid-column: 3 / 5;
+            grid-column: 1 / 5;
             grid-row: 6 / 7;
           }
         }
 
-        &--cssda {
-          grid-column: 2 / 4;
-          grid-row: 5 / 6;
-
-          @include mq(tablet-sm) {
-            grid-column: 1 / 3;
-            grid-row: 6 / 8;
-          }
-        }
-
-        &--CSSDA2016 {
-          grid-column: 2 / 5;
-          grid-row: 7 / 8;
-
-          @include mq(tablet-sm) {
-            grid-column: 1 / 4;
-            grid-row: 9 / 10;
-          }
-        }
-
-        &--CSSDA2015 {
-          grid-column: 1 / 4;
-          grid-row: 8 / 9;
-
-          @include mq(tablet-sm) {
-            grid-column: 2 / 5;
-            grid-row: 10 / 11;
-          }
-
-          &:before {
-            bottom: -1px;
-          }
-        }
-
         &--blank {
-          grid-column: 1 / 2;
-          grid-row: 5 / 6;
+          display: none;
 
           @include mq(tablet-sm) {
             grid-column: 3 / 5;
