@@ -1,4 +1,4 @@
-# Abir — Full-Stack Developer Portfolio
+# Abir — Full-Stack Dev Portfolio
 
 Personal portfolio built with [Astro](https://astro.build), customized from [Antoine Wodniack's Webby-winning design](https://github.com/AntoineW/AW-2025-Portfolio).
 
