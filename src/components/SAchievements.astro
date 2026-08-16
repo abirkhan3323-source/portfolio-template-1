@@ -1,0 +1,242 @@
+---
+const groups = [
+  {
+    title: 'International',
+    items: [
+      'Champion — International Insect Photography Competition 2024 · Junior Category',
+      'Silver Medalist — 2025 JWC Awards · World Innovation Competition',
+      '2nd Position — Yongan Futures Anzai IQ Quiz 2026',
+      'Representative — NASA International Space Apps Challenge · Bangladesh (2024 & 2025)',
+      'Delegate — 10th & 11th International Youth Conference · represented Bangladesh',
+    ],
+  },
+  {
+    title: 'National',
+    tiers: [
+      {
+        label: 'Champion',
+        items: [
+          'MEMS National Science Festival 2024 · Project Display (Higher Secondary)',
+          'National Aeroastro Festival 2024 · Project Display (Higher Secondary)',
+          '67th Scintilla National Science Festival 2024 · Project Display (Higher Secondary)',
+          'The 1st National XSC Science Festival 2024 · Project Display (Higher Secondary)',
+          '7th Laboratorians National Science Festival 2025 · Project Display (Higher Secondary)',
+          '7th Laboratorians National Science Festival 2025 · Lunar Odyssey (Combined)',
+          '7th Laboratorians National Science Festival 2025 · Math Olympiad (Higher Secondary)',
+          'বিজ্ঞান ও প্রযুক্তি উৎসব 2025 (Ponchom Ashor) · IQ Test',
+        ],
+      },
+      {
+        label: '1st Runner-up',
+        items: [
+          'Notre Dame Annual Science Festival 2024 & 33rd GKC · Project Display (Higher Secondary)',
+          'Higgs Boson National Science Festival 2024 · Project Display (Higher Secondary)',
+          '15th DRMC National Science & Codeavour International Carnival 2024 · Project Display (Higher Secondary)',
+          '3rd DRMC National Nature Festival 2024 · Project Display (Higher Secondary)',
+          '7th Laboratorians National Science Festival 2025 · Digital Art',
+          '7th Laboratorians National Science Festival 2025 · DSLR Photography',
+          'Higgs Boson National Science Festival · Wall Magazine (Higher Secondary)',
+          'BSIS National Science & Innovation Carnival 2024 · Sci-fi Story Writing (Higher Secondary)',
+        ],
+      },
+      {
+        label: '2nd Runner-up',
+        items: [
+          'BSIS National Science & Innovation Carnival 2024 · Project Display (Higher Secondary)',
+          '1st AKSC National Science Carnival 2024 · Project Display (Higher Secondary)',
+          'BSIS National Science & Innovation Carnival 2024 · Sci-fi Story Writing (Higher Secondary)',
+          'MEMS National Science Festival 2024 · Math Olympiad (Higher Secondary)',
+          '7th Laboratorians National Science Festival 2025 · Digital Art',
+          '7th Laboratorians National Science Festival 2025 · Truss Challenge',
+          '15th SGHSC National Science Festival · Wall Magazine (Higher Secondary)',
+          '12th ISTARC Science & Technology Festival 2024 · Project Display (Higher Secondary)',
+        ],
+      },
+      {
+        label: '3rd Runner-up',
+        items: [
+          '15th SGHSC National Science Festival · Wall Magazine (Higher Secondary)',
+          '1st KHS Science Festival 2024 · Physics Olympiad (Higher Secondary)',
+        ],
+      },
+    ],
+  },
+  {
+    title: 'Campus Ambassador',
+    items: [
+      'Best Campus Ambassador — Higgs Boson National Science Festival',
+      'Best Campus Ambassador — 7th Laboratorians National Science Festival',
+      'Campus Ambassador — 1st AKSC National Science Festival 2024',
+      'Campus Ambassador — Rajuk Sci-Spark 3.0',
+      'Campus Ambassador — National Science & Innovation Carnival 2024',
+      'Campus Ambassador — 15th DRMC National Science & Innovation Carnival',
+      'Campus Ambassador — MEMS National Science Festival 2024',
+      'Campus Ambassador — 67th Scintilla National Science Festival 2024',
+      'Campus Ambassador — The 1st National XSC Science Festival 2024',
+      'Campus Ambassador — BSIS National Science & Innovation Carnival 2024',
+      'Campus Ambassador — 3rd DRMC National Nature Festival 2024',
+    ],
+  },
+  {
+    title: 'Organizer',
+    items: [
+      '2nd MGCSC MindSpark Science Expo 2024',
+      '1st MGCCC Intra Cultural Expo 2024',
+      '1st National Youth Creations Expo 2024',
+      '3rd MGCSC MindSpark Science Expo 2024',
+      '7th Laboratorians National Science Festival',
+    ],
+  },
+]
+---
+
+<section id="achievements" class="s-achievements">
+  <div class="s__inner">
+    <h2 class="s__title">Achievements</h2>
+
+    <div class="s__content">
+      {
+        groups.map((group) => (
+          <div class="a-group">
+            <h3 class="a-group__title">{group.title}</h3>
+
+            {group.items ? (
+              <ul class="a-list">
+                {group.items.map((item) => (
+                  <li class="a-list__item">{item}</li>
+                ))}
+              </ul>
+            ) : (
+              group.tiers.map((tier) => (
+                <div class="a-tier">
+                  <h4 class="a-tier__label">{tier.label}</h4>
+
+                  <ul class="a-list">
+                    {tier.items.map((item) => (
+                      <li class="a-list__item">{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))
+            )}
+          </div>
+        ))
+      }
+    </div><!-- .s__content -->
+  </div><!-- .s__inner -->
+</section>
+
+<style lang="scss">
+  .s-achievements {
+    --width: 46rem;
+
+    position: relative;
+    z-index: 3;
+
+    padding: 10rem 0;
+
+    @include mq(tablet-sm) {
+      --width: 70vw;
+
+      padding: 5rem 0;
+    }
+
+    @include mq(phone) {
+      --width: 84vw;
+    }
+
+    .s__inner {
+      margin: 0 auto;
+      width: var(--width);
+
+      border: 1px solid color(secondary);
+    }
+
+    .s__title {
+      margin: 0;
+      padding: 0 0 2px;
+
+      background: color(secondary);
+
+      color: color(primary);
+      font: 700 12px / 24px font-family(fraktion);
+      letter-spacing: 0.1em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .s__content {
+      padding: 4rem 4.5rem;
+
+      font: 200 1.5rem / 1.5 font-family(editorial);
+
+      @include mq(phone) {
+        padding: 2.5rem 1.75rem;
+
+        font-size: 1.25rem;
+      }
+    }
+
+    .a-group {
+      & + .a-group {
+        margin-top: 3.5rem;
+        padding-top: 3.5rem;
+
+        border-top: 1px solid color(secondary);
+      }
+    }
+
+    .a-group__title {
+      margin: 0 0 1.5rem;
+
+      color: color(secondary);
+      font: 700 13px / 1 font-family(fraktion);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .a-tier {
+      & + .a-tier {
+        margin-top: 2rem;
+      }
+    }
+
+    .a-tier__label {
+      margin: 0 0 0.75rem;
+
+      font: 400 12px / 1 font-family(fraktion);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .a-list {
+      margin: 0;
+      padding: 0;
+
+      list-style: none;
+    }
+
+    .a-list__item {
+      position: relative;
+
+      padding-left: 1.5em;
+
+      & + .a-list__item {
+        margin-top: 0.5em;
+      }
+
+      &:before {
+        position: absolute;
+        top: 0.65em;
+        left: 0;
+
+        width: 0.6em;
+        height: 1px;
+
+        background: color(secondary);
+
+        content: '';
+      }
+    }
+  }
+</style>
