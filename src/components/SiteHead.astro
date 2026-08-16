@@ -1,15 +1,19 @@
 ---
 const menu = [
   {
-    id: 'about',
+    href: '#about',
     text: 'About',
   },
   {
-    id: 'work',
+    href: '#work',
     text: 'Work',
   },
   {
-    id: 'contact',
+    href: '/shop',
+    text: 'Shop',
+  },
+  {
+    href: '#contact',
     text: 'Contact',
   },
 ]
@@ -50,7 +54,7 @@ const menu = [
         {
           menu.map((item) => (
             <li class="sb__item js-menu-item">
-              <a href={'#' + item.id} class="js-menu-link">
+              <a href={item.href} class="js-menu-link">
                 <span class="sb__text">{item.text}</span>
               </a>
             </li>
@@ -386,9 +390,14 @@ const menu = [
      * Move to section
      */
     moveToSection(e) {
-      e.preventDefault()
-
       const id = e.currentTarget.getAttribute('href')
+
+      // In-page anchors smooth-scroll; real links (e.g. /shop) navigate normally.
+      if (!id || !id.startsWith('#')) {
+        return
+      }
+
+      e.preventDefault()
 
       window.lenis.scrollTo(id, {
         duration: 1.5,
