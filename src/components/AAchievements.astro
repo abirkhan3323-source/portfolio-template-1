@@ -1,0 +1,527 @@
+---
+const groups = [
+  {
+    key: 'international',
+    title: 'International',
+    kicker: 'Across borders',
+    items: [
+      'Champion · International Insect Photography Competition 2024 (Junior Category)',
+      'Silver Medalist · 2025 JWC Awards — World Innovation Competition',
+      '2nd Position · Yongan Futures Anzai IQ Quiz 2026',
+      'Representative · NASA International Space Apps Challenge — Bangladesh (2024 & 2025)',
+      'Attendee & Delegate · 10th & 11th International Youth Conference — represented Bangladesh',
+    ],
+  },
+  {
+    key: 'national',
+    title: 'National',
+    kicker: 'Bangladesh',
+    tiers: [
+      {
+        label: 'Champion',
+        items: [
+          'MEMS National Science Festival 2024 · Project Display (Higher Secondary)',
+          'National Aeroastro Festival 2024 · Project Display (Higher Secondary)',
+          '67th Scintilla National Science Festival 2024 · Project Display (Higher Secondary)',
+          'The 1st National XSC Science Festival 2024 · Project Display (Higher Secondary)',
+          '7th Laboratorians National Science Festival 2025 · Project Display (Higher Secondary)',
+          '7th Laboratorians National Science Festival 2025 · Lunar Odyssey (Combined)',
+          '7th Laboratorians National Science Festival 2025 · Math Olympiad (Higher Secondary)',
+          'বিজ্ঞান ও প্রযুক্তি উৎসব 2025 (Ponchom Ashor) · IQ Test',
+        ],
+      },
+      {
+        label: '1st Runner-up',
+        items: [
+          'Notre Dame Annual Science Festival 2024 & 33rd GKC · Project Display (Higher Secondary)',
+          'Higgs Boson National Science Festival 2024 · Project Display (Higher Secondary)',
+          '15th DRMC National Science & Codeavour International Carnival 2024 · Project Display (Higher Secondary)',
+          '3rd DRMC National Nature Festival 2024 · Project Display (Higher Secondary)',
+          '7th Laboratorians National Science Festival 2025 · Digital Art',
+          '7th Laboratorians National Science Festival 2025 · DSLR Photography',
+          'Higgs Boson National Science Festival · Wall Magazine (Higher Secondary)',
+          'BSIS National Science & Innovation Carnival 2024 · Sci-fi Story Writing (Higher Secondary)',
+        ],
+      },
+      {
+        label: '2nd Runner-up',
+        items: [
+          'BSIS National Science & Innovation Carnival 2024 · Project Display (Higher Secondary)',
+          '1st AKSC National Science Carnival 2024 · Project Display (Higher Secondary)',
+          'BSIS National Science & Innovation Carnival 2024 · Sci-fi Story Writing (Higher Secondary)',
+          'MEMS National Science Festival 2024 · Math Olympiad (Higher Secondary)',
+          '7th Laboratorians National Science Festival 2025 · Digital Art',
+          '7th Laboratorians National Science Festival 2025 · Truss Challenge',
+          '15th SGHSC National Science Festival · Wall Magazine (Higher Secondary)',
+          '12th ISTARC Science & Technology Festival 2024 · Project Display (Higher Secondary)',
+        ],
+      },
+      {
+        label: '3rd Runner-up',
+        items: [
+          '15th SGHSC National Science Festival · Wall Magazine (Higher Secondary)',
+          '1st KHS Science Festival 2024 · Physics Olympiad (Higher Secondary)',
+        ],
+      },
+    ],
+  },
+  {
+    key: 'representations',
+    title: 'Representations',
+    kicker: 'Campus Ambassador',
+    items: [
+      'Best Campus Ambassador — Higgs Boson National Science Festival',
+      'Best Campus Ambassador — 7th Laboratorians National Science Festival',
+      'Campus Ambassador — 1st AKSC National Science Festival 2024',
+      'Campus Ambassador — Rajuk Sci-Spark 3.0',
+      'Campus Ambassador — National Science & Innovation Carnival 2024',
+      'Campus Ambassador — 15th DRMC National Science & Innovation Carnival',
+      'Campus Ambassador — MEMS National Science Festival 2024',
+      'Campus Ambassador — 67th Scintilla National Science Festival 2024',
+      'Campus Ambassador — The 1st National XSC Science Festival 2024',
+      'Campus Ambassador — BSIS National Science & Innovation Carnival 2024',
+      'Campus Ambassador — 3rd DRMC National Nature Festival 2024',
+    ],
+  },
+  {
+    key: 'organizing',
+    title: 'Organizing',
+    kicker: 'Behind the scenes',
+    items: [
+      '2nd MGCSC MindSpark Science Expo 2024',
+      '1st MGCCC Intra Cultural Expo 2024',
+      '1st National Youth Creations Expo 2024',
+      '3rd MGCSC MindSpark Science Expo 2024',
+      '7th Laboratorians National Science Festival',
+    ],
+  },
+].map((group) => ({
+  ...group,
+  count:
+    group.tiers?.reduce((sum, tier) => sum + tier.items.length, 0) ??
+    group.items.length,
+}))
+---
+
+<div class="a-modal js-modal" aria-hidden="true">
+  <div class="a-modal__card js-card">
+    <button
+      class="a-modal__close js-close"
+      type="button"
+      aria-label="Close achievements"
+    >
+      <span class="a-modal__close__text">Close</span>
+
+      <svg
+        class="a-modal__close__icon"
+        width="18"
+        height="18"
+        viewBox="0 0 18 18"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        <path d="M1 1l16 16M17 1L1 17" stroke="currentColor"></path>
+      </svg>
+    </button>
+
+    <div class="a-modal__scroll js-scroll" data-lenis-prevent>
+      {
+        groups.map((group) => (
+          <div class="a-modal__group js-group" data-group={group.key}>
+            <header class="a-modal__head">
+              <span class="a-modal__kicker js-kicker">{group.kicker}</span>
+
+              <h2 class="a-modal__title js-title">{group.title}</h2>
+
+              <span class="a-modal__count js-count">
+                {group.count} achievements
+              </span>
+            </header>
+
+            <div class="a-modal__body">
+              {group.tiers ? (
+                group.tiers.map((tier) => (
+                  <div class="a-modal__tier">
+                    <h3 class="a-modal__tier__label js-tier">
+                      {tier.label}
+                    </h3>
+
+                    <ul class="a-modal__list">
+                      {tier.items.map((item) => (
+                        <li class="a-modal__item js-item">
+                          <span class="a-modal__item__text">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))
+              ) : (
+                <ul class="a-modal__list">
+                  {group.items.map((item) => (
+                    <li class="a-modal__item js-item">
+                      <span class="a-modal__item__text">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<script>
+  import { gsap } from 'gsap'
+
+  class Modal {
+    el: HTMLElement
+    card: HTMLElement
+    scroll: HTMLElement
+    groups: NodeListOf<HTMLElement>
+    close: HTMLElement
+
+    isOpen: boolean
+    origin: { x: number; y: number }
+
+    /**
+     * Constructor
+     */
+    constructor() {
+      this.el = document.querySelector('.js-modal')
+      this.card = this.el.querySelector('.js-card')
+      this.scroll = this.el.querySelector('.js-scroll')
+      this.groups = this.el.querySelectorAll('.js-group')
+      this.close = this.el.querySelector('.js-close')
+
+      this.isOpen = false
+      this.origin = { x: 0, y: 0 }
+
+      this.bind()
+    }
+
+    /**
+     * Bind events
+     */
+    bind() {
+      document.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement
+        const trigger = target.closest('[data-ach-group]')
+
+        if (!trigger) return
+
+        const key = trigger.getAttribute('data-ach-group')
+        const rect = trigger.getBoundingClientRect()
+
+        this.open(key, rect.left + rect.width / 2, rect.top + rect.height / 2)
+      })
+
+      this.close.addEventListener('click', () => this.hide())
+
+      // Close on backdrop (outside the card)
+      this.el.addEventListener('click', (e) => {
+        if (!this.card.contains(e.target as HTMLElement)) {
+          this.hide()
+        }
+      })
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && this.isOpen) {
+          this.hide()
+        }
+      })
+    }
+
+    /**
+     * Open overlay, revealing from the trigger's origin
+     */
+    open(key: string, x: number, y: number) {
+      if (this.isOpen) return
+
+      this.isOpen = true
+      this.origin = { x, y }
+
+      const group = this.el.querySelector(
+        `.js-group[data-group="${key}"]`
+      ) as HTMLElement
+
+      this.groups.forEach((g) => {
+        g.classList.toggle('is-active', g === group)
+      })
+
+      this.scroll.scrollTop = 0
+      window.lenis?.stop()
+
+      this.el.setAttribute('aria-hidden', 'false')
+
+      gsap.set(this.el, {
+        clipPath: `circle(0% at ${x}px ${y}px)`,
+        autoAlpha: 1,
+      })
+
+      gsap.to(this.el, {
+        clipPath: `circle(150% at ${x}px ${y}px)`,
+        duration: 0.85,
+        ease: 'expo.inOut',
+      })
+
+      const head = group.querySelectorAll('.js-kicker, .js-title, .js-count')
+      const items = group.querySelectorAll('.js-item, .js-tier')
+
+      gsap.fromTo(
+        head,
+        { y: 24, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          ease: 'power3.out',
+          stagger: 0.08,
+          delay: 0.35,
+        }
+      )
+
+      gsap.fromTo(
+        items,
+        { y: 28, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.55,
+          ease: 'power3.out',
+          stagger: 0.04,
+          delay: 0.5,
+        }
+      )
+    }
+
+    /**
+     * Close overlay back to the origin
+     */
+    hide() {
+      if (!this.isOpen) return
+
+      this.isOpen = false
+      window.lenis?.start()
+
+      gsap.to(this.el, {
+        clipPath: `circle(0% at ${this.origin.x}px ${this.origin.y}px)`,
+        duration: 0.7,
+        ease: 'expo.inOut',
+        onComplete: () => {
+          gsap.set(this.el, { autoAlpha: 0 })
+          this.el.setAttribute('aria-hidden', 'true')
+        },
+      })
+    }
+  }
+
+  new Modal()
+</script>
+
+<style lang="scss">
+  .a-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+
+    background: color(secondary);
+    clip-path: circle(0% at 50% 50%);
+
+    color: color(primary);
+    visibility: hidden;
+    opacity: 0;
+
+    @media (prefers-reduced-motion: no-preference) {
+      will-change: clip-path;
+    }
+
+    &__card {
+      position: relative;
+
+      width: 100%;
+      height: 100%;
+    }
+
+    &__close {
+      @include flex(row, center, center);
+
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      z-index: 3;
+
+      gap: 0.75rem;
+      padding: 0.75rem 1.25rem;
+
+      appearance: none;
+      background: color(secondary);
+      border: 1px solid color(primary);
+      border-radius: 999rem;
+      cursor: pointer;
+
+      color: color(primary);
+      font: 700 11px / 1 font-family(fraktion);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+
+      @include mq(phone) {
+        top: 1rem;
+        right: 1rem;
+
+        padding: 0.75rem;
+      }
+
+      overflow: hidden;
+
+      &:before {
+        position: absolute;
+        inset: 0;
+
+        background: color(primary);
+        border-radius: 999rem;
+        scale: 0 1;
+        transform-origin: 100% 50%;
+
+        transition: scale 0.4s ease(in-out-quint);
+
+        content: '';
+      }
+
+      &:hover {
+        color: color(secondary);
+
+        &:before {
+          scale: 1 1;
+          transform-origin: 0 50%;
+        }
+      }
+
+      &__text {
+        position: relative;
+        z-index: 1;
+
+        @include mq(phone) {
+          display: none;
+        }
+      }
+
+      &__icon {
+        position: relative;
+        z-index: 1;
+
+        path {
+          stroke-width: 1px;
+        }
+      }
+    }
+
+    &__scroll {
+      height: 100%;
+
+      overflow-y: auto;
+      overscroll-behavior: contain;
+    }
+
+    &__group {
+      display: none;
+
+      max-width: 58rem;
+      margin: 0 auto;
+      padding: 8rem 4rem 6rem;
+
+      @include mq(tablet-sm) {
+        padding: 6rem 1.5rem 4rem;
+      }
+
+      &.is-active {
+        display: block;
+      }
+    }
+
+    &__head {
+      margin: 0 0 3rem;
+      padding: 0 0 2rem;
+
+      border-bottom: 1px solid color(primary);
+    }
+
+    &__kicker {
+      display: block;
+      margin: 0 0 1rem;
+
+      font: 700 12px / 1 font-family(fraktion);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    &__title {
+      margin: 0 0 1.25rem;
+
+      font: 700 clamp(3rem, 9vw, 7rem) / 0.9 font-family(bigger);
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+
+      @include mq(phone) {
+        font-size: clamp(2.5rem, 14vw, 4rem);
+      }
+    }
+
+    &__count {
+      font: 200 1.25rem / 1 font-family(editorial);
+    }
+
+    &__tier {
+      & + .a-modal__tier {
+        margin-top: 2.75rem;
+      }
+    }
+
+    &__tier__label {
+      margin: 0 0 0.5rem;
+
+      font: 700 12px / 1 font-family(fraktion);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    &__list {
+      margin: 0;
+      padding: 0;
+
+      list-style: none;
+      counter-reset: ach;
+    }
+
+    &__item {
+      @include flex(row, flex-start, flex-start);
+
+      gap: 1.5rem;
+      padding: 1.1rem 0;
+
+      border-bottom: 1px solid color(primary);
+
+      counter-increment: ach;
+
+      &:before {
+        flex: none;
+
+        width: 2rem;
+
+        font: 400 12px / 1.5 font-family(fraktion);
+        letter-spacing: 0.06em;
+        content: counter(ach, decimal-leading-zero);
+      }
+    }
+
+    &__item__text {
+      font: 200 1.5rem / 1.4 font-family(editorial);
+
+      @include mq(phone) {
+        font-size: 1.25rem;
+      }
+    }
+  }
+</style>

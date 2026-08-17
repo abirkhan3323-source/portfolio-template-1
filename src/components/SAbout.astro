@@ -143,6 +143,50 @@ const awards = {
           </svg>
         </li>
       </ul><!-- .s__content -->
+
+      <div class="s__achievements" id="achievements">
+        <div class="s__achievements__list">
+          <button
+            class="s__ach js-ach"
+            type="button"
+            data-ach-group="international"
+          >
+            <span class="s__ach__index">01</span>
+            <span class="s__ach__label">International</span>
+            <span class="s__ach__arrow">→</span>
+          </button>
+
+          <button
+            class="s__ach js-ach"
+            type="button"
+            data-ach-group="national"
+          >
+            <span class="s__ach__index">02</span>
+            <span class="s__ach__label">National</span>
+            <span class="s__ach__arrow">→</span>
+          </button>
+
+          <button
+            class="s__ach js-ach"
+            type="button"
+            data-ach-group="representations"
+          >
+            <span class="s__ach__index">03</span>
+            <span class="s__ach__label">Representations</span>
+            <span class="s__ach__arrow">→</span>
+          </button>
+
+          <button
+            class="s__ach js-ach"
+            type="button"
+            data-ach-group="organizing"
+          >
+            <span class="s__ach__index">04</span>
+            <span class="s__ach__label">Organizing</span>
+            <span class="s__ach__arrow">→</span>
+          </button>
+        </div>
+      </div>
     </div><!-- .s__block -->
   </div><!-- .s__inner -->
 
@@ -1210,6 +1254,102 @@ const awards = {
             }
           }
         }
+      }
+    }
+
+    .s__achievements {
+      padding: 1.5rem;
+
+      border-top: 1px solid color(secondary);
+
+      @include mq(phone) {
+        padding: 1rem;
+      }
+
+      &__list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 1px;
+
+        background: color(secondary);
+
+        @include mq(phone) {
+          grid-template-columns: 1fr;
+        }
+      }
+    }
+
+    .s__ach {
+      @include flex(row, center, flex-start);
+
+      position: relative;
+
+      gap: 0.875rem;
+      padding: 1.5rem;
+
+      appearance: none;
+      background: color(primary);
+      border: 0;
+      border-radius: 0;
+      cursor: pointer;
+      overflow: hidden;
+      text-align: left;
+
+      color: color(secondary);
+
+      transition: color 0.45s ease(in-out-quint);
+
+      &:before {
+        position: absolute;
+        inset: 0;
+
+        background: color(secondary);
+        scale: 0 1;
+        transform-origin: 0 50%;
+
+        transition: scale 0.45s ease(in-out-quint);
+
+        content: '';
+      }
+
+      &:hover,
+      &:focus-visible {
+        color: color(primary);
+
+        &:before {
+          scale: 1 1;
+        }
+      }
+
+      &__index,
+      &__label,
+      &__arrow {
+        position: relative;
+        z-index: 1;
+      }
+
+      &__index {
+        font: 400 11px / 1 font-family(fraktion);
+        letter-spacing: 0.06em;
+      }
+
+      &__label {
+        flex: 1;
+
+        font: 700 13px / 1.2 font-family(fraktion);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      &__arrow {
+        font: 700 14px / 1 font-family(fraktion);
+
+        transition: transform 0.45s ease(in-out-quint);
+      }
+
+      &:hover &__arrow {
+        transform: translate3d(0.25rem, 0, 0);
       }
     }
 
