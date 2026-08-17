@@ -9,7 +9,6 @@ const awards = {
   texts: {
     abri: "Abri — Pink desktop companion<br/>12 states, Pomodoro, XP system",
     jinbao: "Jinbao Sheng — Industrial B2B<br/>93 products, 4 languages",
-    haaland: "Haaland Anime — Fan page<br/>with dynamic animations",
   },
 }
 ---
@@ -74,6 +73,50 @@ const awards = {
             </li>
           ))
         }
+
+        <li class="s__award s__award--achievements" id="achievements">
+          <div class="s__ach__list">
+            <button
+              class="s__ach js-ach"
+              type="button"
+              data-ach-group="international"
+            >
+              <span class="s__ach__index">01</span>
+              <span class="s__ach__label">International</span>
+              <span class="s__ach__arrow">→</span>
+            </button>
+
+            <button
+              class="s__ach js-ach"
+              type="button"
+              data-ach-group="national"
+            >
+              <span class="s__ach__index">02</span>
+              <span class="s__ach__label">National</span>
+              <span class="s__ach__arrow">→</span>
+            </button>
+
+            <button
+              class="s__ach js-ach"
+              type="button"
+              data-ach-group="representations"
+            >
+              <span class="s__ach__index">03</span>
+              <span class="s__ach__label">Representations</span>
+              <span class="s__ach__arrow">→</span>
+            </button>
+
+            <button
+              class="s__ach js-ach"
+              type="button"
+              data-ach-group="organizing"
+            >
+              <span class="s__ach__index">04</span>
+              <span class="s__ach__label">Organizing</span>
+              <span class="s__ach__arrow">→</span>
+            </button>
+          </div>
+        </li>
 
         <li class="s__award s__award--blank">
           <svg
@@ -143,50 +186,6 @@ const awards = {
           </svg>
         </li>
       </ul><!-- .s__content -->
-
-      <div class="s__achievements" id="achievements">
-        <div class="s__achievements__list">
-          <button
-            class="s__ach js-ach"
-            type="button"
-            data-ach-group="international"
-          >
-            <span class="s__ach__index">01</span>
-            <span class="s__ach__label">International</span>
-            <span class="s__ach__arrow">→</span>
-          </button>
-
-          <button
-            class="s__ach js-ach"
-            type="button"
-            data-ach-group="national"
-          >
-            <span class="s__ach__index">02</span>
-            <span class="s__ach__label">National</span>
-            <span class="s__ach__arrow">→</span>
-          </button>
-
-          <button
-            class="s__ach js-ach"
-            type="button"
-            data-ach-group="representations"
-          >
-            <span class="s__ach__index">03</span>
-            <span class="s__ach__label">Representations</span>
-            <span class="s__ach__arrow">→</span>
-          </button>
-
-          <button
-            class="s__ach js-ach"
-            type="button"
-            data-ach-group="organizing"
-          >
-            <span class="s__ach__index">04</span>
-            <span class="s__ach__label">Organizing</span>
-            <span class="s__ach__arrow">→</span>
-          </button>
-        </div>
-      </div>
     </div><!-- .s__block -->
   </div><!-- .s__inner -->
 
@@ -1149,16 +1148,6 @@ const awards = {
           }
         }
 
-        &--haaland {
-          grid-column: 1 / 5;
-          grid-row: 5 / 6;
-
-          @include mq(tablet-sm) {
-            grid-column: 1 / 5;
-            grid-row: 6 / 7;
-          }
-        }
-
         &--blank {
           display: none;
 
@@ -1257,27 +1246,25 @@ const awards = {
       }
     }
 
-    .s__achievements {
-      padding: 1.5rem;
+    .s__award--achievements {
+      grid-column: 1 / 5;
+      grid-row: 5 / 6;
 
-      border-top: 1px solid color(secondary);
-
-      @include mq(phone) {
-        padding: 1rem;
+      @include mq(tablet-sm) {
+        grid-column: 1 / 5;
+        grid-row: 6 / 7;
       }
+    }
 
-      &__list {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+    .s__ach__list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 1fr;
 
-        gap: 1px;
+      gap: 1px;
+      height: 100%;
 
-        background: color(secondary);
-
-        @include mq(phone) {
-          grid-template-columns: 1fr;
-        }
-      }
+      background: color(secondary);
     }
 
     .s__ach {
@@ -1286,7 +1273,7 @@ const awards = {
       position: relative;
 
       gap: 0.875rem;
-      padding: 1.5rem;
+      padding: 1.75rem 2rem;
 
       appearance: none;
       background: color(primary);
@@ -1330,26 +1317,43 @@ const awards = {
       }
 
       &__index {
-        font: 400 11px / 1 font-family(fraktion);
+        font: 400 12px / 1 font-family(fraktion);
         letter-spacing: 0.06em;
       }
 
       &__label {
         flex: 1;
 
-        font: 700 13px / 1.2 font-family(fraktion);
+        font: 700 15px / 1.2 font-family(fraktion);
         letter-spacing: 0.1em;
         text-transform: uppercase;
       }
 
       &__arrow {
-        font: 700 14px / 1 font-family(fraktion);
+        font: 700 16px / 1 font-family(fraktion);
 
         transition: transform 0.45s ease(in-out-quint);
       }
 
       &:hover &__arrow {
         transform: translate3d(0.25rem, 0, 0);
+      }
+
+      @include mq(phone) {
+        gap: 0.625rem;
+        padding: 1rem 1.25rem;
+
+        &__label {
+          font-size: 12px;
+        }
+
+        &__index {
+          font-size: 11px;
+        }
+
+        &__arrow {
+          font-size: 13px;
+        }
       }
     }
 
